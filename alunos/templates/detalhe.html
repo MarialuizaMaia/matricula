@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Aluno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Detalhes do Aluno</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>Nome</th>
+                        <td>{{ aluno.nome_completo }}</td>
+                    </tr>
+                    <tr>
+                        <th>Data de Nascimento</th>
+                        <td>{{ aluno.data_nascimento }}</td>
+                    </tr>
+                    <tr>
+                        <th>CPF</th>
+                        <td>{{ aluno.cpf }}</td>
+                    </tr>
+                    <tr>
+                        <th>RG</th>
+                        <td>{{ aluno.rg }}</td>
+                    </tr>
+                    <tr>
+                        <th>Sexo</th>
+                        <td>{{ aluno.get_sexo_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ aluno.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone</th>
+                        <td>{{ aluno.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <th>Telefone Emergência</th>
+                        <td>{{ aluno.telefone_emergencia }}</td>
+                    </tr>
+                    <tr>
+                        <th>Endereço</th>
+                        <td>
+                            {{ aluno.endereco }}, {{ aluno.numero }} {{ aluno.complemento }} - 
+                            {{ aluno.bairro }} - {{ aluno.cidade }}/{{ aluno.uf }} | CEP: {{ aluno.cep }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Número Matrícula</th>
+                        <td>{{ aluno.numero_matricula }}</td>
+                    </tr>
+                    <tr>
+                        <th>Curso</th>
+                        <td>{{ aluno.curso }}</td>
+                    </tr>
+                    <tr>
+                        <th>Série/Ano</th>
+                        <td>{{ aluno.serie_ano }}</td>
+                    </tr>
+                    <tr>
+                        <th>Turno</th>
+                        <td>{{ aluno.get_turno_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Observações</th>
+                        <td>{{ aluno.observacoes|default:"-" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Voltar</a>
+            <a href="{% url 'editar' aluno.pk %}" class="btn btn-success">Editar</a>
+            <a href="{% url 'excluir' aluno.pk %}" class="btn btn-danger">Excluir</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

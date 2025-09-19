@@ -32,4 +32,7 @@ def excluir_aluno(request, pk):
     if request.method == 'POST':
         aluno.delete()
         return redirect('home')
-    # return render(request, 'confirm_delete.html', {'aluno': aluno})
+
+def detalhar_aluno(request, pk):
+    aluno = get_object_or_404(Aluno, pk=pk)
+    return render(request, 'detalhe.html', {'aluno': aluno})
