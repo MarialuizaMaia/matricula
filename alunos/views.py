@@ -29,9 +29,8 @@ def editar_aluno(request, pk):
 
 def excluir_aluno(request, pk):
     aluno = get_object_or_404(Aluno, pk=pk)
-    if request.method == 'POST':
-        aluno.delete()
-        return redirect('home')
+    aluno.delete()
+    return redirect('home')
 
 def detalhar_aluno(request, pk):
     aluno = get_object_or_404(Aluno, pk=pk)
